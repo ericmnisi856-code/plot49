@@ -1,5 +1,5 @@
 {
-  "buildCommand": "vite build && cp index.html dist/client/index.html",
+  "buildCommand": "vite build",
   "outputDirectory": "dist/client",
   "installCommand": "npm install",
   "framework": null,

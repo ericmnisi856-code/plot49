@@ -1,9 +1,9 @@
 [build]
   publish = "dist/client"
-  command = "npm run netlify:build && Copy-Item index.html dist/client/index.html"
+  command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/*"
