@@ -7,10 +7,12 @@
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:spa": "vite build --config vite.spa.config.ts",
     "preview": "vite preview",
+    "preview:spa": "vite preview --config vite.spa.config.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "netlify:build": "npm run build"
+    "netlify:build": "npm run build:spa"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
