@@ -14,12 +14,55 @@ import decorStage from "@/assets/decor-stage.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Plot 49 Midrand — Premium Venue & Events" },
-      { name: "description", content: "Luxury venue, weddings, corporate events & catering in Blue Hills, Midrand. Book Plot 49 today." },
-      { property: "og:title", content: "Plot 49 Midrand — Where Unforgettable Moments Come to Life" },
-      { property: "og:description", content: "Premium venue hire in Midrand — weddings, corporate, decor, catering." },
+      { title: "Private Corporate Retreats & Garden Venues Midrand | Plot 49" },
+      { name: "description", content: "Discover a secluded boutique venue in Midrand. Plot 49 offers private executive meeting spaces and tranquil garden breakout areas, far from the noise of big hotel crowds." },
+      { property: "og:title", content: "Private Corporate Retreats & Garden Venues Midrand | Plot 49" },
+      { property: "og:description", content: "Discover a secluded boutique venue in Midrand. Plot 49 offers private executive meeting spaces and tranquil garden breakout areas, far from the noise of big hotel crowds." },
       { property: "og:image", content: hallWedding },
+      { name: "keywords", content: "Private meeting space, Boutique corporate venue, Garden conference Midrand, Executive retreats Gauteng, Corporate events Midrand, Privacy venue" },
     ],
+    script: [
+      {
+        type: "application/ld+json",
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EventVenue",
+          "name": "Plot 49",
+          "description": "Exclusive boutique venue in Midrand offering private corporate retreats, executive meeting spaces, and tranquil garden breakout areas away from hotel crowds.",
+          "url": "https://plot49.co.za",
+          "telephone": "+27-123-456-7890",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Midrand",
+            "addressRegion": "Gauteng",
+            "addressCountry": "South Africa"
+          },
+          "areaServed": "Midrand, Johannesburg, Gauteng",
+          "keywords": "Private meeting space, Boutique corporate venue, Garden conference Midrand, Executive retreats Gauteng, Corporate events Midrand",
+          "amenityFeature": [
+            "Swimming Pool",
+            "Free WiFi",
+            "Private Gardens",
+            "Professional AV Equipment",
+            "Catering Services",
+            "DJ & Sound System"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Venue Hire",
+              "description": "Private boutique venue for corporate events, executive retreats, and strategy meetings"
+            }
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "25"
+          }
+        })
+      }
+    ]
   }),
   component: Home,
 });
@@ -32,8 +75,8 @@ const SLIDES = [
 ];
 
 const HEADLINES = [
+  "Exclusive Private Corporate Events in a Natural Midrand Setting",
   "Where Unforgettable Moments Come to Life.",
-  "Weddings. Reimagined.",
   "Corporate Events. Elevated.",
 ];
 
@@ -76,7 +119,7 @@ function Home() {
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <img src={SLIDES[slide].img} alt="" className="w-full h-full object-cover" />
+            <img src={SLIDES[slide].img} alt={SLIDES[slide].kicker === "Garden Events" ? "Secluded outdoor corporate meeting area with pool and gardens in Midrand" : SLIDES[slide].kicker === "Weddings" ? "Luxury wedding venue with elegant decor and ambiance in Midrand" : SLIDES[slide].kicker === "Fine Dining" ? "Premium dining setup for corporate events and private functions at Plot 49" : "Sophisticated event decor and staging for exclusive corporate gatherings"} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.16_0.02_60/0.4),oklch(0.16_0.02_60/0.92))]" />
           </motion.div>
         </AnimatePresence>
@@ -135,7 +178,7 @@ function Home() {
       <section className="py-24 mx-auto max-w-7xl px-6">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.4em] text-primary mb-3">Why Plot 49</p>
-          <h2 className="font-display text-4xl sm:text-5xl max-w-2xl">At Plot 49, we don't just host — we craft moments.</h2>
+          <h2 className="font-display text-4xl sm:text-5xl max-w-2xl">A Tranquil Boutique Alternative to Midrand Hotels</h2>
         </Reveal>
         <div className="mt-14 grid md:grid-cols-3 gap-6">
           {[
@@ -159,12 +202,13 @@ function Home() {
       <section
         className="relative py-32 parallax-bg"
         style={{ backgroundImage: `url(${poolUmbrellas})` }}
+        aria-label="Private garden venue for executive retreats Gauteng with pool and outdoor meeting spaces"
       >
         <div className="absolute inset-0 bg-background/85" />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-primary mb-3">Amenities</p>
-            <h2 className="font-display text-4xl sm:text-5xl mb-12">Everything your event needs.</h2>
+            <h2 className="font-display text-4xl sm:text-5xl mb-12">Secluded Meeting Spaces for Strategy & Planning</h2>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
@@ -186,6 +230,48 @@ function Home() {
         </div>
       </section>
 
+      {/* THE ANTI-HOTEL EXPERIENCE */}
+      <section className="py-24 mx-auto max-w-7xl px-6">
+        <Reveal>
+          <p className="text-xs uppercase tracking-[0.4em] text-primary mb-3">The Plot 49 Difference</p>
+          <h2 className="font-display text-4xl sm:text-5xl mb-12">The Anti-Hotel Experience</h2>
+          <div className="prose prose-lg max-w-4xl text-foreground/80 leading-relaxed">
+            <p className="mb-6">
+              Escape the corporate hotel chains and discover a truly exclusive-use estate where your privacy is paramount. At Plot 49, we specialize in <strong>discreet business strategy sessions</strong> and executive retreats that demand confidentiality and focus.
+            </p>
+            <p className="mb-6">
+              Our <strong>exclusive-use estate</strong> ensures your team has complete privacy for sensitive discussions, brainstorming sessions, and strategic planning. Unlike crowded hotel conference centers, you'll find <strong>lush green breakout zones</strong> where ideas flow naturally amid tranquil gardens and sparkling pool views.
+            </p>
+            <p className="mb-8">
+              Experience the perfect blend of professional sophistication and natural serenity—where productive meetings seamlessly transition into relaxed networking in our private outdoor spaces. This is boutique corporate hospitality redefined for discerning teams who value privacy, nature, and exceptional service.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 mt-12">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">100%</span>
+                </div>
+                <h3 className="font-semibold mb-2">Exclusive Use</h3>
+                <p className="text-sm text-muted-foreground">Your event gets complete privacy—no sharing with other guests</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">0</span>
+                </div>
+                <h3 className="font-semibold mb-2">Hotel Crowds</h3>
+                <p className="text-sm text-muted-foreground">Just your team in a peaceful, focused environment</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">∞</span>
+                </div>
+                <h3 className="font-semibold mb-2">Natural Serenity</h3>
+                <p className="text-sm text-muted-foreground">Lush gardens and tranquil spaces for creative thinking</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* SOCIAL */}
       <section className="py-24 mx-auto max-w-7xl px-6">
         <Reveal>
@@ -193,10 +279,19 @@ function Home() {
           <h2 className="font-display text-4xl sm:text-5xl mb-12">Moments from our venue.</h2>
         </Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[hallWedding, tableSetting, decorStage, poolUmbrellas, poolTent, hallWedding, tableSetting, decorStage].map((src, i) => (
+          {[
+            { src: hallWedding, alt: "Elegant wedding hall setup at Plot 49 boutique venue in Midrand" },
+            { src: tableSetting, alt: "Fine dining table setting for corporate events at exclusive Midrand venue" },
+            { src: decorStage, alt: "Professional event decor and staging for private corporate functions" },
+            { src: poolUmbrellas, alt: "Secluded outdoor corporate meeting area with pool and gardens in Midrand" },
+            { src: poolTent, alt: "Private garden venue for executive retreats Gauteng with marquee setup" },
+            { src: hallWedding, alt: "Luxury venue interior for exclusive corporate events in Midrand" },
+            { src: tableSetting, alt: "Gourmet catering setup for private business meetings at Plot 49" },
+            { src: decorStage, alt: "Sophisticated event decor for boutique corporate gatherings" }
+          ].map((item, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <div className="group relative aspect-square overflow-hidden rounded-2xl">
-                <img src={src} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={item.src} alt={item.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition" />
               </div>
             </Reveal>
